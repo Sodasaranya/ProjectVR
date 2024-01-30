@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR-360</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <audio id="click-sound" src="หลายคนตามหา!! ( โตเกียว ดริฟ ) John Rmx.mp3"></audio>
+            <a-asset-item id="banana" src="./banana_dancing_fortnite/scene.gltf"></a-asset-item>
+            <a-asset-item id="city" src="./ฉาก/scene.gltf"></a-asset-item>
+            <a-asset-item id="samba" src="./samba_anime_dance/scene.gltf"></a-asset-item>
+            <a-asset-item id="girl" src="./dancing_girl_from_fire_emblem_if/scene.gltf"></a-asset-item>
+            <a-asset-item id="disco" src="./disco_ball_with_colored_lights/scene.gltf"></a-asset-item>
+        
+        </a-assets>
+
+        <a-sound src="#click-sound" autoplay="true"></a-sound>
+        <a-gltf-model id="bananaEntity" src="#banana" position="110 -5 5" scale="12 12 12" animation="property: position; to: 110 -5 50; loop: true; dur: 20000; easing: linear;"></a-gltf-model>
+        <a-gltf-model id="discoImage" src="#girl" position="150 -5 50" scale="12 12 12"></a-gltf-model>
+        <a-gltf-model src="#samba" position="120 -5 10" scale="0.05 0.05 0.05"></a-gltf-model>
+        <a-gltf-model src="#city" position="-40 -5 40" scale="8 8 8"></a-gltf-model>
+        <a-gltf-model id="discoImage" src="#disco" position="170 30 40" scale="10 10 10"></a-gltf-model>
+      
+    </a-scene>
+    <script>
+        rotateImage(0);
+
+        function rotateImage(degrees) {
+            var y = degrees;
+
+            document.getElementById('discoImage').setAttribute('rotation', '0 ' + y + ' 0');
+
+            degrees += 1;
+            if (degrees >= 360) {
+                degrees = 0;
+            }
+            setTimeout(function () {
+                rotateImage(degrees);
+            }, 1);
+        }
+        
+    </script>
+</body>
+</html>
